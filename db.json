@@ -1,0 +1,20 @@
+{
+  "tasks": [
+    {
+      "id": "2",
+      "name": "Aprender @for",
+      "completed": false
+    },
+    {
+      "name": "Teste de adicionar",
+      "completed": true,
+      "id": "WCdkeRrgLTM"
+    },
+    {
+      "name": "Estudar Angular",
+      "completed": false,
+      "id": "Sq0sNDwqw90"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -67,7 +67,10 @@
               "buildTarget": "TaskFlow:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4210
+          }
         },
         "test": {
           "builder": "@angular/build:unit-test"

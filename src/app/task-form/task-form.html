@@ -1,0 +1,16 @@
+<form novalidate>
+
+  <input type="text" [formField]="taskForm.name" placeholder="Nome da tarefa">
+
+  @if (taskForm.name().touched() && taskForm.name().invalid()) {
+    @for (err of taskForm.name().errors(); track err.kind) {
+      <p>{{err.message}}</p>
+    }
+  }
+
+  <button
+    (click)="onSubmit()"
+    [disabled]="!taskForm().valid() || taskForm().submitting()"
+  >{{ taskForm().submitting() ? "Salvando..." : "Salvar" }}</button>
+
+</form>

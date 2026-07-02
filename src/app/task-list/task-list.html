@@ -1,0 +1,35 @@
+<main>
+
+  <h1>TaskFlow</h1>
+  <p>{{taskService.pendingLabel()}}</p>
+
+  <app-task-form></app-task-form>
+
+  <hr>
+
+  <input type="text" placeholder="Buscar tarefa..." (input)="searchTermInput($event)">
+
+  @if (!taskService.error()) {
+    @if (!taskService.isLoading()) {
+      @for (task of filteredTasks(); track task.id) {
+        <app-task-item
+          [task]="task"
+          (toggleCompleted)="toggleComplete($event)"
+          (deleteTask)="deleteTask($event)"
+        ></app-task-item>
+      }
+      @empty {
+        <p>Nenhuma tarefa ainda. Adicione a primeira!</p>
+      }
+    }
+    @else {
+      <p>Carregando...</p>
+    }
+  }
+  @else {
+    <p>Erro ao carregar os registros</p>
+  }
+
+
+
+</main>

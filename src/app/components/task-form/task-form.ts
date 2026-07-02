@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { form, FormField, minLength, required, submit, validate } from '@angular/forms/signals';
-import { TaskService } from '../services/task.service';
+import { TaskService } from '../../services/task.service';
 
 export interface TaskNewModel {
   name: string;

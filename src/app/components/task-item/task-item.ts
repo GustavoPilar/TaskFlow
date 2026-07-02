@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { Task } from '../models/task';
+import { Task } from '../../models/task';
 import { RouterLink } from "@angular/router";
 
 @Component({

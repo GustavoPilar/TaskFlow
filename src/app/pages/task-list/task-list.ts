@@ -1,10 +1,10 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
-import { TaskItem } from '../task-item/task-item';
+import { TaskItem } from '../../components/task-item/task-item';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Subject, map, debounceTime, distinctUntilChanged } from 'rxjs';
-import { Task } from '../models/task';
-import { TaskService } from '../services/task.service';
-import { TaskForm } from "../task-form/task-form";
+import { Task } from '../../models/task';
+import { TaskService } from '../../services/task.service';
+import { TaskForm } from "../../components/task-form/task-form";
 
 @Component({
   selector: 'app-task-list',

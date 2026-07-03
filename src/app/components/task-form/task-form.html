@@ -9,9 +9,26 @@
           </div>
           <label for="name" class="font-bold"> Nova tarefa</label>
         </div>
-        <input type="text" id="name" placeholder="Nome da tarefa" pInputText [formField]="taskForm.name" fluid >
+        <p-icon-field>
+          <p-inputicon class="pi pi-tag"></p-inputicon>
+          <input type="text" id="name" placeholder="Nome da tarefa" pInputText [formField]="taskForm.name" fluid >
+        </p-icon-field>
         @if (taskForm.name().touched() && taskForm.name().invalid()) {
           @for (err of taskForm.name().errors(); track err.kind) {
+             <p-message severity="error" size="small" variant="simple">{{err.message}}</p-message>
+          }
+        }
+      </div>
+      <div class="field col-12 flex flex-column gap-2">
+        <div class="flex justify-content-left align-items-center gap-2">
+          <label for="description" class="font-bold">Descrição</label>
+        </div>
+        <p-icon-field>
+          <p-inputicon class="pi pi-file-edit"></p-inputicon>
+          <input type="text" id="description" placeholder="Nome da tarefa" pInputText [formField]="taskForm.description" fluid >
+        </p-icon-field>
+        @if (taskForm.description().touched() && taskForm.description().invalid()) {
+          @for (err of taskForm.description().errors(); track err.kind) {
              <p-message severity="error" size="small" variant="simple">{{err.message}}</p-message>
           }
         }

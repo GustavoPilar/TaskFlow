@@ -1,9 +1,43 @@
-@if (task(); as currentTask) {
-  <h2>{{currentTask.name}}</h2>
-  <p>Status: {{currentTask.completed ? "Concluída" : "Pendente"}}</p>
-}
-@else {
-  <p>Tarefa não encontrada</p>
-}
+<div class="fluid p-2 flex flex-column gap-2">
 
-<a [routerLink]="['/']">Voltar</a>
+  <div class="flex flex-row justify-content-left align-items-center">
+    <button pButton text [routerLink]="['/']"><svg data-p-icon="angle-left"></svg> Voltar</button>
+  </div>
+
+  @if (task(); as currentTask) {
+    <div class="p-2 shadow-1 border-round-xl">
+      <div class="w-full flex flex-row gap-2">
+        <div class="p-2 border-circle flex justify-content-center align-items-center" [class]="{'bg-primary': currentTask.completed, 'bg-orange-100': !currentTask.completed}">
+          @if (currentTask.completed) {
+            <svg data-p-icon="check" size="17"></svg>
+          }
+          @else {
+            <svg data-p-icon="clock" size="17" color="orange"></svg>
+          }
+        </div>
+        <h2>{{currentTask.name}}</h2>
+      </div>
+
+      <p-divider></p-divider>
+    </div>
+    
+    <div class="p-2 shadow-1 border-round-xl">
+      <div class="w-full flex flex-row align-items-center gap-2">
+        <div class="p-2 border-circle flex justify-content-center align-items-center">
+          <svg data-p-icon="file-edit" size="20" color="var(--p-primary-500)"></svg>
+        </div>
+        <p class="font-bold text-xl">Descrição</p>
+      </div>
+
+      <p-divider></p-divider>
+
+      <div class="p-2">
+        <p class="text-gray-400">{{currentTask.description}}</p>
+      </div>
+    </div>
+  }
+  @else {
+    <p>Nenhuma tarefa foi encontrada</p>
+  }
+
+</div>

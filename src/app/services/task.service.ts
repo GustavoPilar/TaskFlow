@@ -1,6 +1,7 @@
 import { computed, effect, inject, Service, signal } from '@angular/core';
 import { Task } from '../models/task';
 import { HttpClient, httpResource } from '@angular/common/http';
+import { TaskNewModel } from '../components/task-form/task-form';
 
 @Service()
 export class TaskService {
@@ -16,8 +17,8 @@ export class TaskService {
   readonly tasks = computed(() => this.tasksSignal.value() ?? []);
   readonly pendingLabel = computed(() => `${this.pendingCount()} pendente(s), ${this.completedCount()} completa(s)`);
 
-  addTask(name: string): void {
-    this.http.post(this.url, { name, completed: false })
+  addTask(task: TaskNewModel): void {
+    this.http.post(this.url, { ...task, completed: false})
     .subscribe(() => this.tasksSignal.reload());
   }
 

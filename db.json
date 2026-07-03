@@ -1,14 +1,10 @@
 {
   "tasks": [
     {
-      "name": "Teste de adicionar",
+      "name": "Adorai com Signal",
+      "description": "Introduzir o conceito de Angular Signal, da versão 22, ao projeto Adorai que usa apenas RxJS.",
       "completed": false,
-      "id": "WCdkeRrgLTM"
-    },
-    {
-      "name": "Estudar Angular",
-      "completed": false,
-      "id": "lHt1cfntid8"
+      "id": "Z6yDoWqiH1I"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

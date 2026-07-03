@@ -6,9 +6,12 @@ import { Plus } from "@primeicons/angular/plus";
 import { InputTextModule } from "primeng/inputtext";
 import { MessageModule } from "primeng/message";
 import { ButtonDirective } from "primeng/button";
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 
 export interface TaskNewModel {
   name: string;
+  description: string;
 }
 
 @Component({
@@ -19,7 +22,9 @@ export interface TaskNewModel {
     Plus,
     InputTextModule,
     MessageModule,
-    ButtonDirective
+    ButtonDirective,
+    IconFieldModule,
+    InputIconModule
 ],
   templateUrl: './task-form.html',
   styleUrl: './task-form.scss',
@@ -28,7 +33,7 @@ export class TaskForm {
 
   private readonly taskService = inject(TaskService);
 
-  protected readonly taskModel = signal<TaskNewModel>({ name: "" });
+  protected readonly taskModel = signal<TaskNewModel>({ name: "", description: "" });
 
   protected readonly taskForm = form(this.taskModel, (schemaPath) => {
     required(schemaPath.name, { message: "Nome obrigatório." });
@@ -41,12 +46,15 @@ export class TaskForm {
 
       return null;
     });
+
+    required(schemaPath.description, { message: "Descrição obrigatória" }),
+    minLength(schemaPath.description, 10, { message: "Mínimo de 10 caracteres." })
   });
 
   async onSubmit(): Promise<void> {
     await submit(this.taskForm, async () => {
-      this.taskService.addTask(this.taskModel().name);
-      this.taskModel.set({ name: "" });
+      this.taskService.addTask(this.taskModel());
+      this.taskModel.set({ name: "", description: "" });
     });
   }
 

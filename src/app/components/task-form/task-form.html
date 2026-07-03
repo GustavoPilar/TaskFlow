@@ -1,16 +1,29 @@
-<form novalidate>
+<div class="fluid border-round shadow-1 p-2">
+  
+  <form novalidate>
+    <div class="grid">
+      <div class="field col-12 flex flex-column gap-2">
+        <div class="flex justify-content-left align-items-center gap-2">
+          <div class="p-1 flex justify-content-center align-items-center bg-primary border-circle">
+            <svg data-p-icon="plus" size="17"></svg>
+          </div>
+          <label for="name" class="font-bold"> Nova tarefa</label>
+        </div>
+        <input type="text" id="name" placeholder="Nome da tarefa" pInputText [formField]="taskForm.name" fluid >
+        @if (taskForm.name().touched() && taskForm.name().invalid()) {
+          @for (err of taskForm.name().errors(); track err.kind) {
+             <p-message severity="error" size="small" variant="simple">{{err.message}}</p-message>
+          }
+        }
+      </div>
+      <div class="field col-12">
+        <button pButton fluid (click)="onSubmit()" [disabled]="!taskForm().valid() || taskForm().submitting()">
+          <svg data-p-icon="save" size="20"></svg>
+          {{ taskForm().submitting() ? "Salvando..." : "Salvar" }}
+        </button>
+      
+      </div>
+    </div>
+  </form>
+</div>
 
-  <input type="text" [formField]="taskForm.name" placeholder="Nome da tarefa">
-
-  @if (taskForm.name().touched() && taskForm.name().invalid()) {
-    @for (err of taskForm.name().errors(); track err.kind) {
-      <p>{{err.message}}</p>
-    }
-  }
-
-  <button
-    (click)="onSubmit()"
-    [disabled]="!taskForm().valid() || taskForm().submitting()"
-  >{{ taskForm().submitting() ? "Salvando..." : "Salvar" }}</button>
-
-</form>

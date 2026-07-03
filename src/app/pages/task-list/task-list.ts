@@ -5,12 +5,20 @@ import { Subject, map, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Task } from '../../models/task';
 import { TaskService } from '../../services/task.service';
 import { TaskForm } from "../../components/task-form/task-form";
+import { Card } from "../../components/card/card";
+import { InputTextModule } from 'primeng/inputtext';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 
 @Component({
   selector: 'app-task-list',
   imports: [
     TaskItem,
-    TaskForm
+    TaskForm,
+    Card,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule
 ],
   templateUrl: './task-list.html',
   styleUrl: './task-list.scss',

@@ -1,6 +1,7 @@
-<nav>
-  <a routerLink="/">TaskFlow</a>
-  <a routerLink="/about">Sobre</a>
-</nav>
+<div class="fluid p-2 m-auto" [style.max-width.rem]="30">
 
-<router-outlet />
+  <app-nav></app-nav>
+  
+  <router-outlet />
+</div>
+

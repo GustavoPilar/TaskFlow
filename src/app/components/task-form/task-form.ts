@@ -1,6 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { form, FormField, minLength, required, submit, validate } from '@angular/forms/signals';
 import { TaskService } from '../../services/task.service';
+import { Save } from "@primeicons/angular/save";
+import { Plus } from "@primeicons/angular/plus";
+import { InputTextModule } from "primeng/inputtext";
+import { MessageModule } from "primeng/message";
+import { ButtonDirective } from "primeng/button";
 
 export interface TaskNewModel {
   name: string;
@@ -9,8 +14,13 @@ export interface TaskNewModel {
 @Component({
   selector: 'app-task-form',
   imports: [
-    FormField
-  ],
+    FormField,
+    Save,
+    Plus,
+    InputTextModule,
+    MessageModule,
+    ButtonDirective
+],
   templateUrl: './task-form.html',
   styleUrl: './task-form.scss',
 })

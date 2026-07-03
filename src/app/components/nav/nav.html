@@ -1,0 +1,19 @@
+<div class="fluid p-2 flex flex-row justify-content-left align-items-center gap-2">
+
+    <button pButton iconOnly raised (click)="openDrawer()"><svg data-p-icon="bars" [size]="18"></svg></button>
+
+    <div class="flex flex-column">
+        <p class="text-xl font-bold text-primary">TaskFlow</p>
+        <small class="text-gray-500 font-semibold">Organize suas tarefas</small>
+    </div>
+
+</div>
+
+<p-drawer [visible]="visible()" styleClass="w-full! md:w-80!" closable (onHide)="closeDrawer()">
+    <ng-template #content>
+        <div class="flex flex-column gap-1">
+            <button pButton text [routerLink]="['/']">Home <svg data-p-icon="home"></svg></button>
+            <button pButton text [routerLink]="['/about']">Sobre <svg data-p-icon="info-circle"></svg></button>
+        </div>
+    </ng-template>
+</p-drawer>

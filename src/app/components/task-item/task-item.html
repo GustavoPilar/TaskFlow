@@ -1,9 +1,13 @@
-<div class="task-item">
+<div class="task-item border-round-xl shadow-1 p-3 flex flex-row align-items-center gap-2">
 
-  <input type="checkbox" [checked]="task().completed" (change)="onToggle()">
+  <p-checkbox [ngModel]="task().completed" [binary]="true" (onChange)="onToggle()" size="large"/>
 
-  <span [class.completed]="task().completed">{{task().name}}</span>
+  <div class="w-full">
+    <span class="font-bold" [class.completed]="task().completed">{{task().name}}</span>
+  </div>
 
-  <button (click)="onDelete()">Remover</button>
-  <a [routerLink]="['/tasks', task().id]">Ver detalhes</a>
+  <div class="flex flex-row gap-2">
+    <button pButton [routerLink]="['/tasks', task().id]" severity="info"><svg data-p-icon="eye" size="15"></svg></button>
+    <button pButton (click)="onDelete()" severity="danger"><svg data-p-icon="trash" size="15"></svg></button>
+  </div>
 </div>

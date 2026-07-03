@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use "primeflex/primeflex.scss";
+@import url("primeicons/primeicons.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito", "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.text-black {
+    color: #000;
+}

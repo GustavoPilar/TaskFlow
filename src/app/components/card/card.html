@@ -1,0 +1,23 @@
+<div class="flex flex-row justify-content-left align-items-center shadow-1 p-2 border-round-2xl gap-3">
+
+    <div class="p-2 border-circle flex justify-content-center align-items-center" [class]="{'bg-orange-100': isPending(), 'bg-green-100': !isPending()}">
+        @if (isPending()) {
+            <svg data-p-icon="clock" color="orange" size="19"></svg>
+        }
+        @else {
+            <svg data-p-icon="check" color="green" size="19"></svg>
+        }
+    </div>
+
+    <div class="flex flex-column gap-1">
+        <p class="text-xl font-semibold" [class]="{'text-orange-500': isPending(), 'text-green-500': !isPending()}">{{value()}}</p>
+        <small class="font-semibold text-gray-400">
+            {{
+                isPending()
+                ? 'Pendente(s)'
+                : 'Concluída(s)'
+            }}
+        </small>
+    </div>
+
+</div>

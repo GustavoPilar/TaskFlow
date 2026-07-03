@@ -1,13 +1,16 @@
-<main>
+<main class="flex flex-column pt-3 gap-4">
 
-  <h1>TaskFlow</h1>
-  <p>{{taskService.pendingLabel()}}</p>
+  <div class="flex flex-row justify-content-evenly align-items-center">
+    <app-card class="w-5" [value]="taskService.pendingCount()" [isPending]="true"></app-card>
+    <app-card class="w-5" [value]="taskService.completedCount()" [isPending]="false"></app-card>
+  </div>
 
   <app-task-form></app-task-form>
 
-  <hr>
-
-  <input type="text" placeholder="Buscar tarefa..." (input)="searchTermInput($event)">
+  <p-icon-field>
+    <p-inputicon class="pi pi-search"></p-inputicon>
+    <input type="text" pInputText placeholder="Buscar tarefa..." (input)="searchTermInput($event)" fluid>
+  </p-icon-field>
 
   @if (!taskService.error()) {
     @if (!taskService.isLoading()) {

@@ -1,19 +1,14 @@
 {
   "tasks": [
     {
-      "id": "2",
-      "name": "Aprender @for",
-      "completed": false
-    },
-    {
       "name": "Teste de adicionar",
-      "completed": true,
+      "completed": false,
       "id": "WCdkeRrgLTM"
     },
     {
       "name": "Estudar Angular",
       "completed": false,
-      "id": "Sq0sNDwqw90"
+      "id": "lHt1cfntid8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -8,8 +8,8 @@ export class TaskService {
   private readonly url = "http://localhost:3000/tasks";
   private readonly http = inject(HttpClient);
   private readonly tasksSignal = httpResource<Task[]>(() => this.url);
-  protected readonly completedCount = computed(() => this.tasksSignal.value()?.filter(x => x.completed).length ?? 0);
-  protected readonly pendingCount = computed(() => this.tasksSignal.value()?.filter(x => !x.completed).length ?? 0);
+  readonly completedCount = computed(() => this.tasksSignal.value()?.filter(x => x.completed).length ?? 0);
+  readonly pendingCount = computed(() => this.tasksSignal.value()?.filter(x => !x.completed).length ?? 0);
 
   readonly error = this.tasksSignal.error;
   readonly isLoading = this.tasksSignal.isLoading;
